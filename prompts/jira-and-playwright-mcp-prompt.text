@@ -1,0 +1,89 @@
+Use Atlassian MCP to fetch Jira issues from project <jira-project-name/jira-key> where status = Backlog.
+
+For each issue:
+1. Extract:
+   - issue key
+   - summary
+   - description
+   - acceptance criteria
+   - AIO test case details (from description or custom fields)
+
+2. From the above, derive:
+   - test title
+   - test steps
+   - expected results
+
+Then:
+
+Use Playwright MCP to open and inspect:
+https://www.example.com/
+
+Analyze the UI structure and identify stable selectors using accessibility-first strategies.
+
+Generate Playwright TypeScript automation.
+
+-------------------------------------
+STRICT IMPLEMENTATION RULES
+-------------------------------------
+
+ARCHITECTURE:
+1. Use Page Object Model (POM)
+2. Create:
+   - /pages → page classes
+   - /tests → spec files
+   - /test-data → test data layer
+
+TEST DATA (VERY IMPORTANT):
+1. DO NOT hardcode any input values (names, emails, phone numbers, etc.)
+2. Use one of the following:
+   - Static JSON files under /test-data
+   - OR dynamic data using faker (@faker-js/faker)
+3. Use meaningful objects (e.g., contactData, userData)
+4. Ensure tests are reusable and environment-independent
+
+PLAYWRIGHT BEST PRACTICES:
+1. Use:
+   - getByRole
+   - getByLabel
+   - getByText
+   - getByPlaceholder
+2. Avoid:
+   - brittle selectors (xpath, nth-child unless necessary)
+   - hard waits (waitForTimeout)
+3. Use Playwright auto-waiting and assertions properly
+
+TEST STRUCTURE:
+1. Keep assertions ONLY in test files (not in page objects)
+2. Page objects should only contain actions and locators
+3. Use clean, readable method names (e.g., submitContactForm, navigateToServices)
+
+TRACEABILITY:
+1. Add comments at the top of each test:
+   - Jira Key
+   - AIO Test Case Key (if available)
+
+EDGE HANDLING:
+1. Add basic validation checks where relevant (e.g., form submission success)
+2. Handle navigation flows clearly
+3. Do not assume elements exist — verify before interacting when needed
+
+FILE HANDLING:
+1. Do NOT overwrite existing files without asking
+2. Show file structure before generating files
+
+-------------------------------------
+OUTPUT FORMAT
+-------------------------------------
+
+1. First show proposed file structure
+2. Then generate:
+   - page objects
+   - test files
+   - test data files
+
+-------------------------------------
+GOAL
+-------------------------------------
+
+Generate clean, maintainable, scalable Playwright TypeScript tests 
+that can be used in a real QA automation framework.

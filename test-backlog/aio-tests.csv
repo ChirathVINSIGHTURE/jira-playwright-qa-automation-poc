@@ -1,0 +1,4 @@
+jiraKey,aioKey,title,preconditions,steps,expectedResult
+QAD-1,AIO-TC-001,Verify contact form submission,User is on homepage,"Open Contact page; Fill name Chirath; Fill email test@example.com; Fill message Hello; Click Submit","Success message is displayed"
+QAD-2,AIO-TC-002,Verify consultation booking CTA,User is on homepage,"Open Business Registration page; Click Book a consultation","Consultation/contact form is displayed"
+QAD-3,AIO-TC-003,Verify service page navigation,User is on homepage,"Click Services; Open Business Registration service","Business Registration page is displayed"
