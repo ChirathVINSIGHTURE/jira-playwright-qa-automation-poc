@@ -1,4 +1,4 @@
-# Jira–Playwright AIO demo
+# Jira–Playwright demo
 
 This repo demos turning a **test backlog** into Playwright TypeScript tests via MCP:
 
